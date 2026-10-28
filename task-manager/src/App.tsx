@@ -34,7 +34,7 @@ function App() {
     },
     {
       id: "3",
-      title: "Task 1",
+      title: "Task 3",
       description: "This is task 3",
       status: "completed",
       priority: "high",
@@ -43,8 +43,9 @@ function App() {
   ];
 
   const [tasks, setTasks] = useState<Task[]>(tasksArray);
+
   function onStatusChangeFunction(taskId: string, newStatus: TaskStatus) {
-    let selectedTask = tasksArray.find((task) => task.id === taskId);
+    let selectedTask = tasks.find((task) => task.id === taskId);
     if (!selectedTask) return;
 
     setTasks(
@@ -55,7 +56,7 @@ function App() {
   }
 
   function onDeleteFunction(taskId: string) {
-    let arrayAfterDeletion = tasksArray.filter((task) => task.id !== taskId);
+    let arrayAfterDeletion = tasks.filter((task) => task.id !== taskId);
     setTasks(arrayAfterDeletion);
   }
 
