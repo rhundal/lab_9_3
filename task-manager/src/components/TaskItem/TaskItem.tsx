@@ -5,7 +5,7 @@ import { type TaskItemProps } from "../../types";
 export default function TaskItem(props: TaskItemProps) {
   return (
     // <li key={props.task.id}>
-    <div>
+    <div className="bg-slate-300 p-3 rounded-xl mt-5">
       <h1> {props.task.title}</h1>
       <p> {props.task.description}</p>
       <div>
