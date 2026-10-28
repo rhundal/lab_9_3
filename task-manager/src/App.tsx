@@ -15,6 +15,18 @@ function App() {
    onDelete: (taskId: string) => void;
    */
 
+  const [tasks, setTasks] = useState<Task[]>([
+    {
+      id: "",
+      title: "",
+      description: "",
+      status: "pending",
+      priority: "low",
+      dueDate: "",
+    },
+  ]);
+  const [status, setStatus] = useState("");
+
   let tasksArray: Task[] = [
     {
       id: "1",
@@ -42,14 +54,23 @@ function App() {
     },
   ];
 
-  function onStatusChangeFunnction() {}
+  function onStatusChangeFunction(taskId: string, newStatus: TaskStatus) {
+    let selectedTask = tasksArray.find((task) => task.id === taskId);
+    if (!selectedTask) return;
+    // setTask(selectedTask);
+    setTasks([...tasks, selectedTask]);
+    setStatus(newStatus);
+  }
 
-  function onDeleteFunction() {}
+  function onDeleteFunction(taskId: string) {
+    let arrayAfterDeletion = tasksArray.filter((task) => task.id === taskId);
+    setTasks(arrayAfterDeletion);
+  }
 
   return (
     <TaskList
-      tasks={tasksArray}
-      onStatusChange={onStatusChangeFunnction}
+      tasks={tasks}
+      onStatusChange={onStatusChangeFunction}
       onDelete={onDeleteFunction}
     />
   );
