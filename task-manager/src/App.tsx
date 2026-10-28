@@ -15,18 +15,6 @@ function App() {
    onDelete: (taskId: string) => void;
    */
 
-  const [tasks, setTasks] = useState<Task[]>([
-    {
-      id: "",
-      title: "",
-      description: "",
-      status: "pending",
-      priority: "low",
-      dueDate: "",
-    },
-  ]);
-  const [status, setStatus] = useState("");
-
   let tasksArray: Task[] = [
     {
       id: "1",
@@ -54,23 +42,29 @@ function App() {
     },
   ];
 
+  const [tasks, setTasks] = useState<Task[]>(tasksArray);
   function onStatusChangeFunction(taskId: string, newStatus: TaskStatus) {
     let selectedTask = tasksArray.find((task) => task.id === taskId);
     if (!selectedTask) return;
-    // setTask(selectedTask);
-    setTasks([...tasks, selectedTask]);
-    setStatus(newStatus);
+
+    setTasks(
+      tasks.map((task) =>
+        task === selectedTask ? { ...task, status: newStatus } : task,
+      ),
+    );
   }
 
   function onDeleteFunction(taskId: string) {
-    let arrayAfterDeletion = tasksArray.filter((task) => task.id === taskId);
+    let arrayAfterDeletion = tasksArray.filter((task) => task.id !== taskId);
     setTasks(arrayAfterDeletion);
   }
 
   return (
     <TaskList
       tasks={tasks}
+      // this function gets the status of selected task from TaskList Component
       onStatusChange={onStatusChangeFunction}
+      // this function gets the id of selected task to be deleted from TaskList Component
       onDelete={onDeleteFunction}
     />
   );
