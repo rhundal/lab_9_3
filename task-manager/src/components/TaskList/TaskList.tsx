@@ -8,25 +8,6 @@ export default function TaskList(props: TaskListProps) {
   let onStatusChange = props.onStatusChange;
   let onDeleteFunc = props.onDelete;
 
-  /*
-   tasks: Task[];
-   onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
-   onDelete: (taskId: string) => void;
-   */
-
-  // const taskItems = tasksArray.map((task) => {
-  //   <li key={task.id}>
-  //     <div>
-  //       <h1> {task.title}</h1>
-  //       <p> {task.description}</p>
-  //       <div>
-  //         <h2> Priority: ${task.priority}</h2>
-  //         <h2> Due: ${task.dueDate}</h2>
-  //       </div>
-  //     </div>
-  //   </li>;
-  // });
-
   return (
     <>
       <div className="bg-slate-200 flex justify-center items-center m-25">
