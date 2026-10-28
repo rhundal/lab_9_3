@@ -7,7 +7,6 @@ Build a Task Management System (a Component) which:
 2. filter them by status [Pending, In Progress, Completed]
 3. show different visual states based on task properties
 4. provide Delete Button to delete the task
-5.
 
 Additionally/Optionally:
 
