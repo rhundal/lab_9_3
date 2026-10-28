@@ -8,7 +8,7 @@ Build a Task Management System (a Component) which:
 3. show different visual states based on task properties
 4. provide Delete Button to delete the task
 
-Additionally/Optionally:
+Optionally To do:
 
 1. provide a button that sorts the tasks by due date
 2. provide a button that adds a new task to the task list (This will require adding some type of form for the user to input the task details)
