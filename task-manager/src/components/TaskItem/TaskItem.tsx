@@ -11,8 +11,11 @@ export default function TaskItem(props: TaskItemProps) {
     props.onStatusChange(props.task.id, newStatus);
   }
 
+  function handleDeleteFunction(e: React.MouseEvent<HTMLButtonElement>) {
+    props.onDelete(props.task.id);
+  }
+
   return (
-    // <li key={props.task.id}>
     <div className="bg-slate-300 p-3 rounded-xl mt-5">
       <div className="flex flex-rows">
         <div className="flex flex-rows justify-start gap-100">
@@ -30,7 +33,9 @@ export default function TaskItem(props: TaskItemProps) {
                 <option value="completed">completed</option>
               </select>
             </div>
-            <div> Delete Button</div>
+            <div>
+              <button onClick={handleDeleteFunction}> Delete Task</button>
+            </div>
           </div>
         </div>
       </div>
@@ -40,6 +45,5 @@ export default function TaskItem(props: TaskItemProps) {
         <h2> Due: {props.task.dueDate}</h2>
       </div>
     </div>
-    // </li>
   );
 }
