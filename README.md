@@ -23,8 +23,7 @@ Optionally To do: (didnt attempt)
 ### Reflections
 
 1. How did you ensure unique keys for your list items?
-
-- by passing key property/attribute on `<li>` items and by settin their value to `task.id`
+   1. by passing key property/attribute on `<li>` items and by setting their value to `task.id`
 
 2. What considerations did you make when implementing the filtering functionality?
    1. Intially I was writing code to filter in TaskList Component and completely forgot about the TaskFilter component, I then realized what I was missing and made corrections by moving the filter renderring logic in TaskFilter component and implementing the functions which actually apply the filtering in the TaskList Component - particularly the `visibleTasks` function. I basically check for each filter applied individually and return their respective boolean values based on which the ui reacts.
