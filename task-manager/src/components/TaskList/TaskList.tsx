@@ -1,7 +1,6 @@
 import { type TaskListProps } from "../../types";
 import TaskFilter from "../TaskFilter/TaskFilter";
 import TaskItem from "../TaskItem/TaskItem";
-import { type TaskFilterProps } from "../../types";
 
 import { useState } from "react";
 
@@ -10,15 +9,25 @@ export default function TaskList(props: TaskListProps) {
   let onStatusChange = props.onStatusChange;
   let onDeleteFunc = props.onDelete;
 
-  let Currentfilters = {
-    status: "pending",
-    priority: "low",
-  };
-  const [currentFilters, setCurrentFilters] = useState(Currentfilters);
-
+  const [currentFilters, setCurrentFilters] = useState({
+    status: "",
+    priority: "",
+  });
   function onFilterChangeFunc(incomingFilters: any) {
     setCurrentFilters(incomingFilters);
   }
+
+  const visibleTasks = tasksArrayReceived.filter((task) => {
+    if (currentFilters.status && task.status !== currentFilters.status) {
+      return false;
+    }
+
+    if (currentFilters.priority && task.priority !== currentFilters.priority) {
+      return false;
+    }
+
+    return true;
+  });
 
   return (
     <>
@@ -36,7 +45,7 @@ export default function TaskList(props: TaskListProps) {
 
           <div className="mt-10 flex flex-col gap-5">
             <ul className="space-y-4">
-              {tasksArrayReceived.map((task) => (
+              {visibleTasks.map((task) => (
                 <li key={task.id}>
                   <TaskItem
                     task={task}
