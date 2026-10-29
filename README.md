@@ -34,4 +34,8 @@ Optionally To do: (didnt attempt)
 
 ### Known Bug
 
-- I just added more tasks and discovered the All Statuses and All Priorities is not functioning properly
+- <del> I just added more tasks and discovered the All Statuses and All Priorities is not functioning properly </del>
+- Bug Fixed
+  1. remove duplicate id in initial task array
+  2. corrected data set to have all combinations
+  3. fixed bug in TaskFilter component - checked functions (handleStatusChange, handlePriorityChange) and remove default value for `currentPriority` state variable which fixed the issue.
