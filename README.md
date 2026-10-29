@@ -14,6 +14,12 @@ Optionally To do: (didnt attempt)
 2. provide a button that adds a new task to the task list (This will require adding some type of form for the user to input the task details)
 3. provide buttons to the TaskItem component that allow the user to move the task up and down the list
 
+### How To Run Project
+
+- cd Task-Manager/task-manager
+- npm install
+- npm run dev
+
 ### Reflections
 
 1. How did you ensure unique keys for your list items?
