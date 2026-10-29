@@ -41,11 +41,11 @@ function App() {
       dueDate: "1/2/2024",
     },
     {
-      id: "1",
+      id: "4",
       title: "Task 4",
       description: "This is task 4",
       status: "pending",
-      priority: "low",
+      priority: "high",
       dueDate: "12/31/2023",
     },
     {
@@ -53,14 +53,14 @@ function App() {
       title: "Task 5",
       description: "This is task 5",
       status: "in-progress",
-      priority: "medium",
+      priority: "low",
       dueDate: "1/1/2024",
     },
     {
       id: "6",
       title: "Task 6",
       description: "This is task 6",
-      status: "completed",
+      status: "in-progress",
       priority: "high",
       dueDate: "1/2/2024",
     },
@@ -68,7 +68,7 @@ function App() {
       id: "7",
       title: "Task 7",
       description: "This is task 7",
-      status: "pending",
+      status: "completed",
       priority: "low",
       dueDate: "12/31/2023",
     },
@@ -76,31 +76,24 @@ function App() {
       id: "8",
       title: "Task 8",
       description: "This is task 8",
-      status: "in-progress",
+      status: "pending",
       priority: "medium",
-      dueDate: "1/1/2024",
+      dueDate: "12/31/2023",
     },
     {
       id: "9",
       title: "Task 9",
       description: "This is task 9",
       status: "completed",
-      priority: "high",
-      dueDate: "1/2/2024",
-    },
-    {
-      id: "10",
-      title: "Task 10",
-      description: "This is task 10",
-      status: "completed",
-      priority: "high",
-      dueDate: "1/2/2024",
+      priority: "medium",
+      dueDate: "12/31/2023",
     },
   ];
 
   const [tasks, setTasks] = useState<Task[]>(tasksArray);
 
   function onStatusChangeFunction(taskId: string, newStatus: TaskStatus) {
+    // setTasks(tasksArray);
     let selectedTask = tasks.find((task) => task.id === taskId);
     if (!selectedTask) return;
 

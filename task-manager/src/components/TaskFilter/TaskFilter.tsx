@@ -25,7 +25,7 @@ export default function TaskFilter(props: TaskFilterProps) {
   ]);
 
   const [currentStatus, setCurrentStatus] = useState<TaskStatus>("pending");
-  const [currentPriority, setCurrentPriority] = useState<string>("low");
+  const [currentPriority, setCurrentPriority] = useState<string>("");
 
   function handleStatusChange(e: React.ChangeEvent<HTMLSelectElement>) {
     const newStatus = e.target.value as TaskStatus;

@@ -6,6 +6,8 @@ import { useState } from "react";
 
 export default function TaskList(props: TaskListProps) {
   let tasksArrayReceived = props.tasks;
+  console.log("from TaskList Component");
+  console.log(tasksArrayReceived);
   let onStatusChange = props.onStatusChange;
   let onDeleteFunc = props.onDelete;
 
@@ -18,6 +20,8 @@ export default function TaskList(props: TaskListProps) {
   }
 
   const visibleTasks = tasksArrayReceived.filter((task) => {
+    console.log("current filters from TaskList: ", currentFilters);
+
     if (currentFilters.status && task.status !== currentFilters.status) {
       return false;
     }
