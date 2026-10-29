@@ -25,12 +25,26 @@ export default function TaskItem(props: TaskItemProps) {
               <select
                 value={currentStatus}
                 onChange={changeStatusFunction}
-                className="w-full rounded-lg border border-gray-300 bg-white px-3 py-2"
+                className={`w-full rounded-lg border border-gray-300 px-3 py-2 bg-white text-black ${
+                  currentStatus === "pending"
+                    ? "bg-yellow-100 text-yellow-700"
+                    : currentStatus === "in-progress"
+                      ? "bg-white text-blue-400"
+                      : currentStatus === "completed"
+                        ? "bg-white text-green-400"
+                        : "bg-white text-black"
+                }`}
               >
                 <option value="">Select a status</option>
-                <option value="pending">pending</option>
-                <option value="in-progress">in-progress</option>
-                <option value="completed">completed</option>
+                <option className="bg-yellow-100 text-gold-100" value="pending">
+                  pending
+                </option>
+                <option className="bg-white text-blue-400" value="in-progress">
+                  in-progress
+                </option>
+                <option className="bg-green-300 text-black" value="completed">
+                  completed
+                </option>
               </select>
             </div>
             <div>
